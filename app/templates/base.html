@@ -28,22 +28,16 @@
             </div>
             
             <ul class="nav-menu">
-                {% for i in range(nav.people|length) -%}
-                    <li class="dropdown-box">
-                        <a class="dropdown" href="#">{{nav.people[i]|upper}}</a>
-                        <div class="dropdown-content">
-                            {% for j in range(nav.url|length) -%}
-                                {% if j == 0 %}
-                                    <a href={{ url_for( nav.people[i] ) }}>{{nav.label[j]}}</a>
-                                {% else %}
-                                    <a href={{ url_for( nav.url[j], name=nav.people[i] ) }}>{{nav.label[j]}}</a>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    </li>
-                    <br>
-                {% endfor %}
-                <li><a href={{ url_for( "map" ) }}>MAP</a></li>
+                    {% for j in range(nav.url|length) -%}
+                        <li class="nav-box">
+                            {% if j == 0 %}
+                                <a href={{ "jacky" }}>{{nav.label[j]}}</a>
+                            {% else %}
+                                <a href={{ url_for( nav.url[j] ) }}>{{nav.label[j]}}</a>
+                            {% endif %} 
+                        </li>
+                        {% endfor %}
+                <li><a href={{ url_for( "map" ) }}>Map</a></li>
             </ul>
             
         </div>
