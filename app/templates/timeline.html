@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <form id="timeline-form">
+        <h3>Timeline Post</h3>
+        <p>Name: <input type="text" name="name"></p>
+        <p>Email: <input type="text" name="email"></p>
+        <p>Content: <br><textarea name="content" rows="4" cols="50"></textarea></p>
+        <input type="submit">
+    </form>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('static',filename='javascript/timeline.js') }}"></script>
+{% endblock %}

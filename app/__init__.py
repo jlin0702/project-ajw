@@ -41,8 +41,8 @@ class nav:
         self.label = label
 
 profile_nav = nav(
-    ["", "work_edu", "hobbies"],
-    ["About Me", "Work Experience/Education", "Hobbies"]
+    ["", "work_edu", "hobbies", "timeline", "map"],
+    ["About Me", "Work Experience/Education", "Hobbies", "Timeline Posts", "Map"]
 )
 
 @app.route('/')
@@ -102,6 +102,10 @@ def delete_time_line_post():
     id = request.form['id']
     TimelinePost.delete_by_id(id)
     return "ID " + id + " has been deleted"
+
+@app.route('/timeline')
+def timeline():
+    return render_template("timeline.html", nav=profile_nav, title="Timeline")
 
 if __name__ == "__main__":
     app.run(debug=True)
