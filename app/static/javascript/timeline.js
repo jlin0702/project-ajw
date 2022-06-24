@@ -8,6 +8,8 @@ form.addEventListener('submit', e => {
         body: timeline,
     })
     .then(res => res.json())
-    .then(data => console.log(data))
-    .then(() => {location.reload()});
+    .then(data => {
+        console.log(data);
+        location.reload();
+    });
 })
