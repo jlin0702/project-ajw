@@ -5,6 +5,7 @@ from flask import Flask, render_template, request
 from dotenv import load_dotenv
 from peewee import *
 from playhouse.shortcuts import model_to_dict
+import urllib, hashlib
 
 load_dotenv()
 app = Flask(__name__)
@@ -107,6 +108,8 @@ def delete_time_line_post():
 def timeline():
     posts = get_time_line_post()["timeline_posts"]
     for post in posts:
+        gravatar_url = "https://www.gravatar.com/avatar/" + hashlib.md5(post["email"].lower().encode()).hexdigest()
+        post["image_src"] = gravatar_url
         post["created_at"] = post["created_at"].strftime("%a, %d %B %Y %H:%M:%S") + " GMT"
     return render_template("timeline.html", nav=profile_nav, posts=posts, title="Timeline")
 
