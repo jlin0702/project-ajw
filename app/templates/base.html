@@ -27,15 +27,15 @@
             </div>
             
             <ul class="nav-menu">
-                    {% for j in range(nav.url|length) -%}
-                        <li class="nav-box">
-                            {% if j == 0 %}
-                                <a href={{ "jacky" }}>{{nav.label[j]}}</a>
-                            {% else %}
-                                <a href={{ url_for( nav.url[j] ) }}>{{nav.label[j]}}</a>
-                            {% endif %} 
-                        </li>
-                        {% endfor %}
+                {% for j in range(nav.url|length) %}
+                    <li class="nav-box">
+                        {% if j == 0 %}
+                            <a href={{ "jacky" }}>{{nav.label[j]}}</a>
+                        {% else %}
+                            <a href={{ url_for( nav.url[j] ) }}>{{nav.label[j]}}</a>
+                        {% endif %} 
+                    </li>
+                {% endfor %}
             </ul>
             
         </div>

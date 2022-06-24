@@ -59,7 +59,7 @@ def jacky():
 def work_edu():
     job = ["Wendy's"]
     # value: 2d list with inner generating new lines
-    job_description = [["October 2019 - March 2020"]],
+    job_description = [["October 2019 - March 2020"]]
     education = ["University of Kansas", "Northwest High School"]
     # value: 2d list with inner generating new lines
     edu_description = [["B.S. Computer Science","Aug 2020 - May 2024"], ["High School", "Aug 2016 - May 2020"]]
@@ -105,7 +105,10 @@ def delete_time_line_post():
 
 @app.route('/timeline')
 def timeline():
-    return render_template("timeline.html", nav=profile_nav, title="Timeline")
+    posts = get_time_line_post()["timeline_posts"]
+    for post in posts:
+        post["created_at"] = post["created_at"].strftime("%a, %d %B %Y %H:%M:%S") + " GMT"
+    return render_template("timeline.html", nav=profile_nav, posts=posts, title="Timeline")
 
 if __name__ == "__main__":
     app.run(debug=True)

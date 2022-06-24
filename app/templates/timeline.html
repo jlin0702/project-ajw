@@ -5,9 +5,27 @@
         <h3>Timeline Post</h3>
         <p>Name: <input type="text" name="name"></p>
         <p>Email: <input type="text" name="email"></p>
-        <p>Content: <br><textarea name="content" rows="4" cols="50"></textarea></p>
+        <p>Content: <input type="text" id="content" name="content"></p>
         <input type="submit">
     </form>
+
+    <!-- template from https://alvarotrigo.com/blog/html-css-timelines/ -->
+    <div class="timeline">
+        <div class="outer">
+            {% for post in posts %}
+                <div class="card">
+                    <div class="info">
+                        <h3 class="title">{{ post["created_at"] }} </h3>
+                        <p>
+                        Name: {{ post["name"] }}<br>
+                        Email: {{ post["email"] }}<br>
+                        Content: {{ post["content"] }}
+                        </p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
 
 {% block js %}
