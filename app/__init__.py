@@ -85,15 +85,6 @@ def hobbies():
 def map():
     return render_template('map.html', nav=profile_nav, title="Map", url=os.getenv("URL"))
 
-class NameError(Exception):
-    pass
-class EmailError(Exception):
-    pass
-
-class ContentError(Exception):
-    pass
-
-
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
     get_name = request.form.get('name')
