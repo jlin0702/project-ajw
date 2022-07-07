@@ -9,6 +9,12 @@
         <input type="submit">
     </form>
 
+    <form id="delete">
+        <h3>ID to Delete</h3>
+        <p>ID: <input type="text" name="id"></p>
+        <input type="submit">
+    </form>
+
     <!-- template from https://alvarotrigo.com/blog/html-css-timelines/ -->
     <div class="timeline">
         <div class="outer">
@@ -20,7 +26,8 @@
                         Name: {{ post["name"] }}<br>
                         Email: {{ post["email"] }}<br>
                         <img src={{ post["image_src"] }} /><br>
-                        Content: {{ post["content"] }}
+                        Content: {{ post["content"] }}<br>
+                        <small>ID: {{ post["id"] }}</small>
                         </p>
                     </div>
                 </div>

@@ -13,3 +13,19 @@ form.addEventListener('submit', e => {
         location.reload();
     });
 })
+
+const delform = document.getElementById("delete");
+
+delform.addEventListener('submit', e => {
+    e.preventDefault();
+    const id = new FormData(delform);
+    fetch('/api/timeline_post', {
+        method: 'DELETE',
+        body: id,
+    })
+    .then(res => res.text())
+    .then(data => {
+        console.log(data);
+        location.reload();
+    });
+})

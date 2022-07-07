@@ -228,3 +228,8 @@ a:hover {
 #content {
     width: 400px;
 }
+
+#delete {
+    position: absolute;
+    margin-left: 100px;
+}
