@@ -75,7 +75,7 @@ def work_edu():
 # for work experience/education page
 @app.route('/hobbies')
 def hobbies():
-    hobbies = ["Gaming, Driving, Deep discussions"]
+    hobbies = ["Gaming, Driving, Deep Discussions"]
     photo = "jacky_hobby.jpg"
     return render_template("hobbies.html", nav=profile_nav, hobbies=hobbies, title="Hobbies", photo=photo, url=os.getenv("URL"))
 
