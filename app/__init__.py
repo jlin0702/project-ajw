@@ -55,7 +55,7 @@ profile_nav = nav(
 def index():
     return render_template('index.html', nav=profile_nav, title="Jacky", url=os.getenv("URL"))
 
-# for jacky page
+# for jacky page 
 @app.route('/jacky')
 def jacky():
     return render_template('jacky.html', nav=profile_nav, title="About Me", url=os.getenv("URL"))
