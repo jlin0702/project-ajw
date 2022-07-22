@@ -31,7 +31,7 @@ jobs:
           run: ./run_test.sh
 
   deploy:
-    if: test
+    needs: test
     name: "Deploy to VPS"
     runs-on: ubuntu-latest
     steps:
