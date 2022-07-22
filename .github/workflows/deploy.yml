@@ -58,14 +58,10 @@ jobs:
       - name: Print container status
         run: ssh my-vps 'cd ${{ secrets.PROJECT_ROOT }} && docker compose ps'
 
-  message:
-    name: Send Discord Message
-    runs-on: ubuntu-latest
-    steps:
       - name: Deployment successful
-        if: jobs.deploy.outcome == 'success'
+        if: success()
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
 
       - name: Deployment unsuccessful
-        if: jobs.deploy_site.outcome != 'success'
+        if: failure()
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=Deployment Unsuccessful"
