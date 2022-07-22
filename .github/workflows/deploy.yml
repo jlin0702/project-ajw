@@ -34,7 +34,6 @@ jobs:
     needs: test
     name: "Deploy to VPS"
     runs-on: ubuntu-latest
-    id: deploy-site
     steps:
       - name: Configure SSH
         run: |
@@ -64,7 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deployment successful
-        if: jobs.deploy_site.outcome == 'success'
+        if: jobs.deploy.outcome == 'success'
         run: curl -s -X POST "${{ secrets.DISCORD_WEBHOOK }}" -d "content=🚀 Deployment Successful"
 
       - name: Deployment unsuccessful
